@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int main()
+{
+    void linear_search(int[], int, int);
+    int a[10], n, s, i;   // a = array, n = number of array element, s = searching element, i = using for loop
+    
+    printf("How many number enter in list\n");
+    scanf("%d", &n);
+    
+    printf("Enter the array elements\n");
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+    
+    printf("Enter the searching element\n");
+    scanf("%d", &s);
+    linear_search(a, n, s);
+    
+    return 0;
+    
+}   
+
+void linear_search(int a[], int n, int s)
+{
+    int flag = 0;
+    int i;
+    
+    for (i = 0; i < n; i++)
+    {
+        if (a[i] == s)
+        {
+            flag = 1;
+            break;
+        }
+    }
+    
+    if (flag = 0)
+    {
+        printf("search unsuccessful");
+    }
+    else
+    {
+        printf("Search Successful\nSearch element = %d", a[i]);
+    }
+}
