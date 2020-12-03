@@ -1,33 +1,38 @@
-# include<stdio.h>
+#include<stdio.h>
 #include<conio.h>
+#define max 50
+int i,j,x,n;
+int a[max];
+void sort();
 void main()
 {
-    int a[50], i, j, n, temp;
-
-    printf("Enter the size of array\n");
+    printf("Enter the length of array here\n");
     scanf("%d", &n);
-
-    printf("Enter Array Elements\n");
-    for (i = 0; i < n; i++)
+    printf("Enter the array element here\n");
+    for(i=0;i<n;i++)
     {
         scanf("%d", &a[i]);
     }
-
+    sort();
+}
+void sort()
+{
     for(i=0;i<n-1;i++)
     {
-        for(j=0; j<n; j++)
+        x = i;
+        for(j=i+1;j<n;j++)
         {
-            if(a[j] > a[j+1])
+            if(a[j]<a[x])
             {
-                temp = a[j];
-                a[j] = a[j+1];
-                a[j+1] = temp;
+                x = j;
             }
         }
+        int temp = a[i];
+        a[i] = a[x];
+        a[x] = temp;
     }
-    printf("Sorted Array\n");
-    for(i=0;i<n;i++){
-        printf("%d\n", a[i]);
+    for(i=0;i<n;i++)
+    {
+        printf("%d,", a[i]);
     }
-    getch();
 }
